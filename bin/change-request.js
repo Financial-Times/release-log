@@ -78,12 +78,14 @@ const openData = {
 	willThereBeAnOutage: program.outage,
 	resourceOne: program.ownerEmail,
 	serviceIds: program.service,
-	notifyChannel: program.notifyChannel
+	notifyChannel: program.notifyChannel,
+	notify: !!(program.notifyChannel)
 };
 const closeData = {
 	closedByEmailAddress: program.ownerEmail,
 	closeCategory: program.closeCategory,
-	notifyChannel: program.notifyChannel
+	notifyChannel: program.notifyChannel,
+	notify: !!(program.notifyChannel)
 };
 
 // Create and close a change request
