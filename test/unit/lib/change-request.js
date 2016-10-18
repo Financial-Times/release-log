@@ -52,7 +52,7 @@ describe('lib/change-request', () => {
 			});
 
 			describe('.fetch(endpoint, options)', () => {
-				const mockBody = {foo: 'bar'};
+				let mockBody = {foo: 'bar'};
 				let mockResponse;
 
 				beforeEach(() => {
@@ -92,7 +92,8 @@ describe('lib/change-request', () => {
 
 						mockResponse = {
 							ok: false,
-							status: 456
+							status: 456,
+							json: sinon.stub().resolves(mockBody)
 						};
 						fetch.resolves(mockResponse);
 
@@ -104,6 +105,32 @@ describe('lib/change-request', () => {
 					it('rejects with the expected error', () => {
 						assert.instanceOf(caughtError, Error);
 						assert.strictEqual(caughtError.message, '/v2/foo/bar responded with a 456 status');
+					});
+
+				});
+
+				describe('when the response is not successful and a reason is given', () => {
+
+					beforeEach(() => {
+
+						mockBody = {
+							error: 'mock error'
+						};
+						mockResponse = {
+							ok: false,
+							status: 456,
+							json: sinon.stub().resolves(mockBody)
+						};
+						fetch.resolves(mockResponse);
+
+						return instance.fetch('/v2/foo/bar', {
+							method: 'POST'
+						}).catch(error => caughtError = error);
+					});
+
+					it('rejects with the expected error', () => {
+						assert.instanceOf(caughtError, Error);
+						assert.strictEqual(caughtError.message, '/v2/foo/bar responded with a 456 status\nmock error');
 					});
 
 				});
