@@ -1,0 +1,31 @@
+{
+  "name": "@financial-times/change-request",
+  "version": "0.0.0",
+  "description": "Automate opening/closing of change requests for FT applications",
+  "license": "MIT",
+  "main": "lib/change-request.js",
+  "bin": {
+    "change-request": "bin/change-request.js"
+  },
+  "dependencies": {
+    "chalk": "^1",
+    "commander": "^2",
+    "isomorphic-fetch": "^2",
+    "node.extend": "^1"
+  },
+  "devDependencies": {
+    "eslint": "^2",
+    "istanbul": "^0.4",
+    "mocha": "^3",
+    "mockery": "^2",
+    "proclaim": "^3",
+    "sinon": "^1",
+    "sinon-as-promised": "^4"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "make verify test"
+  }
+}
