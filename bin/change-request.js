@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const ChangeRequestClient = require('..');
 const pkg = require('../package.json');
 const program = require('commander');
+const fs = require('fs');
 
 // Command-line configuration
 program
@@ -26,6 +27,10 @@ program
 	.option(
 		'-d, --description <description>',
 		'a short description of the change'
+	)
+	.option(
+		'-f, --description-file <filename>',
+		'file to read description from, instead of --description'
 	)
 	.option(
 		'-r, --reason <reason>',
@@ -70,7 +75,7 @@ const crApi = new ChangeRequestClient({
 const openData = {
 	ownerEmailAddress: program.ownerEmail,
 	summaryOfChange: program.summary,
-	changeDescription: program.description,
+	changeDescription: program.descriptionFile ? fs.readFileSync(program.descriptionFile, 'utf8') : program.description,
 	reasonForChangeDetails: program.reason,
 	changeCategory: program.openCategory,
 	riskProfile: program.riskProfile,

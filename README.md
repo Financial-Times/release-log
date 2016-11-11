@@ -55,6 +55,7 @@ Usage: change-request [options]
     -o, --owner-email <email>             the change request owner email address
     -s, --summary <summary>               a short summary of the change
     -d, --description <description>       a short description of the change
+    -f, --description-file <filename>     file to read description from, instead of --description
     -r, --reason <reason>                 the reason for the change. Default: "Deployment"
     -c, --open-category <category>        the category for opening the change request. One of "Major", "Minor", "Significant". Default: "Minor"
     -C, --close-category <category>       the category for closing the change request. One of "Implemented", "Partially Implemented", "Rejected", "Rolled back", "Cancelled". Default: "Implemented"
