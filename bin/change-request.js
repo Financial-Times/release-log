@@ -107,6 +107,7 @@ crApi.open(openData)
 		console.log(chalk.green(`Closed change request "${cr.id}"`));
 	})
 	.catch(error => {
-		console.error(chalk.red(error.message));
+		console.error(`${chalk.red(error.message)}
+${error.stack ? chalk.grey(error.stack.replace(error.message, '')) : ''}`);
 		process.exit(1);
 	});

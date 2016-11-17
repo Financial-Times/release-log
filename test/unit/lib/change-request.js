@@ -135,6 +135,34 @@ describe('lib/change-request', () => {
 
 				});
 
+				describe('when the response is successful but the body is an error', () => {
+
+					beforeEach(() => {
+
+						mockBody = {
+							cause: {
+								errorMessage: 'mock error'
+							}
+						};
+						mockResponse = {
+							ok: true,
+							status: 200,
+							json: sinon.stub().resolves(mockBody)
+						};
+						fetch.resolves(mockResponse);
+
+						return instance.fetch('/v2/foo/bar', {
+							method: 'POST'
+						}).catch(error => caughtError = error);
+					});
+
+					it('rejects with the expected error', () => {
+						assert.instanceOf(caughtError, Error);
+						assert.strictEqual(caughtError.message, '/v2/foo/bar returned an error\nmock error');
+					});
+
+				});
+
 			});
 
 			it('has a `get` method', () => {
