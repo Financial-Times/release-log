@@ -5,25 +5,25 @@ const pkg = require('../../../package.json');
 const sinon = require('sinon');
 require('sinon-as-promised');
 
-describe('lib/change-request', () => {
-	let ChangeRequestClient;
+describe('lib/release-log', () => {
+	let ReleaseLogClient;
 
 	beforeEach(() => {
-		ChangeRequestClient = require('../../../lib/change-request');
+		ReleaseLogClient = require('../../../lib/release-log');
 		global.fetch = require('../mock/fetch');
 	});
 
 	it('exports a function', () => {
-		assert.isFunction(ChangeRequestClient);
+		assert.isFunction(ReleaseLogClient);
 	});
 
-	describe('new ChangeRequestClient(options)', () => {
+	describe('new ReleaseLogClient(options)', () => {
 		let instance;
 		let resolvedValue;
 		let caughtError;
 
 		beforeEach(() => {
-			instance = new ChangeRequestClient({
+			instance = new ReleaseLogClient({
 				apiKey: 'xxxxxx',
 				host: 'testhost'
 			});
@@ -44,7 +44,7 @@ describe('lib/change-request', () => {
 			});
 
 			it('has a `userAgent` property', () => {
-				assert.strictEqual(instance.userAgent, `ft-change-request/${pkg.version}`);
+				assert.strictEqual(instance.userAgent, `ft-release-log/${pkg.version}`);
 			});
 
 			it('has a `fetch` method', () => {
@@ -293,7 +293,7 @@ describe('lib/change-request', () => {
 		describe('when `options.host` is not set', () => {
 
 			beforeEach(() => {
-				instance = new ChangeRequestClient({
+				instance = new ReleaseLogClient({
 					apiKey: 'xxxxxx'
 				});
 			});

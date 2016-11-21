@@ -1,14 +1,14 @@
 
-Change Request
-==============
+Release Log
+===========
 
-Automate opening/closing of change requests for FT applications.
+Automate opening/closing of release log change requests for FT applications.
 
-[![Build status](https://img.shields.io/circleci/project/Financial-Times/change-request.svg)][ci]
+[![Build status](https://img.shields.io/circleci/project/Financial-Times/release-log.svg)][ci]
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)][license]
 
 ```sh
-change-request \
+release-log \
   --owner-email "you@ft.com" \
   --summary "Hello World" \
   --description "This is a description" \
@@ -31,39 +31,39 @@ Table Of Contents
 Requirements
 ------------
 
-Running the change request tool requires [Node.js] 4.x and [npm].
+Running the release log tool requires [Node.js] 4.x and [npm].
 
 
 Install
 -------
 
 ```sh
-npm install -g @financial-times/change-request
+npm install -g @financial-times/release-log
 ```
 
 Usage
 -----
 
 ```
-Usage: change-request [options]
+Usage: release-log [options]
 
   Options:
 
     -h, --help                            output usage information
     -V, --version                         output the version number
     -a, --api-key <key>                   the API key to use when accessing the CR API
-    -o, --owner-email <email>             the change request owner email address
-    -s, --summary <summary>               a short summary of the change
-    -d, --description <description>       a short description of the change
+    -o, --owner-email <email>             the release log owner email address
+    -s, --summary <summary>               a short summary of the release
+    -d, --description <description>       a short description of the release
     -f, --description-file <filename>     file to read description from, instead of --description
-    -r, --reason <reason>                 the reason for the change. Default: "Deployment"
-    -c, --open-category <category>        the category for opening the change request. One of "Major", "Minor", "Significant". Default: "Minor"
-    -C, --close-category <category>       the category for closing the change request. One of "Implemented", "Partially Implemented", "Rejected", "Rolled back", "Cancelled". Default: "Implemented"
-    -R, --risk-profile <risk-profile>     the risk profile for the change request. One of "Low", "Medium", "High". Default: "Low"
-    -e, --environment <environment>       the environment the change request applies to. One of "Production", "Test", "Development", "Disaster Recovery". Default: "Test"
+    -r, --reason <reason>                 the reason for the release. Default: "Deployment"
+    -c, --open-category <category>        the category for opening the release log. One of "Major", "Minor", "Significant". Default: "Minor"
+    -C, --close-category <category>       the category for closing the release log. One of "Implemented", "Partially Implemented", "Rejected", "Rolled back", "Cancelled". Default: "Implemented"
+    -R, --risk-profile <risk-profile>     the risk profile for the release log. One of "Low", "Medium", "High". Default: "Low"
+    -e, --environment <environment>       the environment the release log applies to. One of "Production", "Test", "Development", "Disaster Recovery". Default: "Test"
     -O, --outage                          whether there will be an outage. Default: false
-    -S, --service <service>               the service that the change request applies to
-    -n, --notify-channel <slack-channel>  the slack channel to notify of the change request
+    -S, --service <service>               the service that the release log applies to
+    -n, --notify-channel <slack-channel>  the slack channel to notify of the release
 ```
 
 
@@ -105,7 +105,7 @@ The Financial Times has published this software under the [MIT license][license]
 
 
 
-[ci]: https://circleci.com/gh/Financial-Times/change-request
+[ci]: https://circleci.com/gh/Financial-Times/release-log
 [license]: http://opensource.org/licenses/MIT
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/

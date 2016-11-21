@@ -1,11 +1,12 @@
 {
-  "name": "@financial-times/change-request",
+  "name": "@financial-times/release-log",
   "version": "0.0.0",
-  "description": "Automate opening/closing of change requests for FT applications",
+  "description": "Automate opening/closing of release log change requests for FT applications",
   "license": "MIT",
-  "main": "lib/change-request.js",
+  "main": "lib/release-log.js",
   "bin": {
-    "change-request": "bin/change-request.js"
+    "change-request": "bin/release-log.js",
+    "release-log": "bin/release-log.js"
   },
   "dependencies": {
     "chalk": "^1",
