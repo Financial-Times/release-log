@@ -3,7 +3,6 @@
 const assert = require('proclaim');
 const pkg = require('../../../package.json');
 const sinon = require('sinon');
-require('sinon-as-promised');
 
 describe('lib/release-log', () => {
 	let ReleaseLogClient;
