@@ -4,6 +4,10 @@ Release Log
 
 🚨 The [Konstructor Change Request API](https://biz-ops.in.ft.com/System/koncrapi) that this package uses has been decommissioned. 🚨
 
+If you're looking for a replacement for this, the Change API documentation includes [some useful integration examples](https://github.com/Financial-Times/change-api#integration-examples).
+
+---
+
 Automate opening/closing of release log change requests for FT applications.
 
 [![Build status](https://img.shields.io/circleci/project/Financial-Times/release-log.svg)][ci]
